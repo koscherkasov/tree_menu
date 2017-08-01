@@ -1,0 +1,4 @@
+<p>{{ name }}</p>
+{% with items=items template_name="menu/tree_items.html" %}
+    {% include template_name %}
+{% endwith %}

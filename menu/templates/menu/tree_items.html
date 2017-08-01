@@ -1,0 +1,14 @@
+<ul class="treeline">
+    {% for item in items %}
+        <li>
+
+            <a href="{% url 'menu:item' selected_item_id=item.id %}"  class="{{ item.selected|yesno:"selected," }}">{{ item.name }}</a>
+            {% if item.child_items %}
+                {% with items=item.child_items template_name="menu/tree_items.html" %}
+                    {% include template_name %}
+                {% endwith %}
+            {% endif %}
+        </li>
+        </li>
+    {% endfor %}
+</ul>
